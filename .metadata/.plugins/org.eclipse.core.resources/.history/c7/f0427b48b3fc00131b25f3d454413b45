@@ -1,0 +1,42 @@
+package glass;
+
+import glass.handlers.EventListener;
+import glass.handlers.InputListener;
+
+import org.eclipse.jface.text.ITextOperationTarget;
+import org.eclipse.jface.text.ITextViewer;
+import org.eclipse.jface.text.JFaceTextUtil;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.IPropertyListener;
+import org.eclipse.ui.IStartup;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
+
+
+public class Startup implements IStartup {
+
+	@Override
+	public void earlyStartup() {
+		final IWorkbenchWindow[] workbenchWindows = PlatformUI.getWorkbench().getWorkbenchWindows();
+		EventListener eventListener = new EventListener();
+		
+		for (IWorkbenchWindow window: workbenchWindows) {
+			window.getPartService().addPartListener(eventListener);
+		}
+		
+		
+		IEditorReference[] editorReferences = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getEditorReferences();
+		InputListener inputListener = new InputListener();
+		
+		for (IEditorReference reference: editorReferences) {
+			reference.addPropertyListener(inputListener);
+			//Display display = Display.getDefault();
+			//display.addFilter(SWT.MouseDown, inputListener);
+		}
+		
+		
+	}
+}

@@ -1,0 +1,19 @@
+1403568233386	Rename type 'EventHandler'
+1403568316791	Rename local variable 'eventHandler'
+1403643815040	Move compilation unit
+1403648806825	Delete element
+1403718146306	Move compilation unit
+1403731574535	Rename type 'Listener'
+1403732388666	Delete element
+1403732465886	Rename type 'Teste'
+1403732548979	Rename type 'Test'
+1403732725231	Delete element
+1403736596241	Delete element
+1403739371016	Rename type 'EventListener'
+1403806215778	Rename package 'Views'
+1403815295293	Delete element
+1403825415763	Rename type 'TestView'
+1403829134436	Rename method 'getLineNumber'
+1403902931000	Rename method 'getLastLineNumber'
+1403903717447	Rename method 'getLineNumber'
+1403903731022	Rename method 'getPreviousLineNumber'

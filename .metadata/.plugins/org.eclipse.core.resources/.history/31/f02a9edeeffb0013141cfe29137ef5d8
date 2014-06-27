@@ -1,0 +1,67 @@
+package glass.handlers;
+
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.commands.IExecutionListener;
+import org.eclipse.core.commands.NotHandledException;
+import org.eclipse.ui.IPartListener;
+import org.eclipse.ui.IWorkbenchPart;
+
+public class InputListener implements IExecutionListener, IPartListener {
+
+	@Override
+	public void notHandled(String commandId, NotHandledException exception) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void postExecuteFailure(String commandId,
+			ExecutionException exception) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void postExecuteSuccess(String commandId, Object returnValue) {
+		// TODO Auto-generated method stub
+		System.out.println("execute");
+	}
+
+	@Override
+	public void preExecute(String commandId, ExecutionEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void partActivated(IWorkbenchPart part) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void partBroughtToTop(IWorkbenchPart part) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void partClosed(IWorkbenchPart part) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void partDeactivated(IWorkbenchPart part) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void partOpened(IWorkbenchPart part) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

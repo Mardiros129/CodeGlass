@@ -1,0 +1,13 @@
+package test.views;
+
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseWheelListener;
+
+public class InputListener implements MouseWheelListener {
+
+	@Override
+	public void mouseScrolled(MouseEvent e) {
+		System.out.println(e.count);
+	}
+
+}

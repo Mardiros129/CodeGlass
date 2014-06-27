@@ -1,0 +1,5 @@
+package glass;
+
+public class ActionFilter implements IActionFilter {
+
+}

@@ -1,0 +1,32 @@
+
+import glass.handlers.EventListener;
+import glass.handlers.InputListener;
+
+import org.eclipse.ui.IStartup;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Text;
+
+
+public class Startup implements IStartup {
+
+	@Override
+	public void earlyStartup() {
+		
+		//IResourceChangeListener changeListener = new ChangeListener();
+		Composite composite = new Composite();
+		
+		final IWorkbenchWindow[] workbenchWindows = PlatformUI.getWorkbench().getWorkbenchWindows();
+		EventListener eventListener = new EventListener();
+		
+		for (IWorkbenchWindow window: workbenchWindows) {
+			window.getPartService().addPartListener(eventListener);
+		}
+		
+		InputListener inputListener = new InputListener();
+		Text textHandler = new Text(composite, 0);
+		textHandler.addMouseWheelListener(inputListener);
+	}
+
+}

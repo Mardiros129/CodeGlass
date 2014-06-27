@@ -1,0 +1,27 @@
+package glass.handlers;
+
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
+
+public class InputListener extends ParentListener implements MouseListener {
+
+	@Override
+	public void mouseDoubleClick(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseDown(MouseEvent e) {
+		System.out.println(getLineNumber());
+	}
+
+	@Override
+	public void mouseUp(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+}

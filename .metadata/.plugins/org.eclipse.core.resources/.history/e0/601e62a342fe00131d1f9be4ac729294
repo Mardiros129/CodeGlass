@@ -1,0 +1,88 @@
+package glass.handlers;
+
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.swt.custom.CaretEvent;
+import org.eclipse.swt.custom.CaretListener;
+import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.custom.StyledTextContent;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.IPartListener2;
+import org.eclipse.ui.IWorkbenchPartReference;
+import org.eclipse.ui.texteditor.AbstractTextEditor;
+import org.eclipse.ui.IEditorReference;
+
+
+public class EditorListener extends ParentListener implements IPartListener2 {
+
+	public StyledTextContent content;
+	
+	
+	public EditorListener() {
+	}
+	
+	public Object execute(ExecutionEvent event) {
+		return null;
+	}
+
+
+	@Override
+	public void partActivated(IWorkbenchPartReference partRef) {
+		
+	}
+
+	@Override
+	public void partBroughtToTop(IWorkbenchPartReference partRef) {
+		AbstractTextEditor e = (AbstractTextEditor)((IEditorReference) partRef).getEditor(false);
+		final StyledText textfield = ((StyledText)e.getAdapter(Control.class));
+		textfield.addCaretListener(new CaretListener() {
+
+			@Override
+			public void caretMoved(CaretEvent event) {
+				int lineNum = getLineNumber(textfield, event);
+				System.out.println(lineNum);
+			}
+	        	
+		});
+	}
+
+	@Override
+	public void partClosed(IWorkbenchPartReference partRef) {
+	}
+
+	@Override
+	public void partDeactivated(IWorkbenchPartReference partRef) {
+		
+		
+	}
+
+	@Override
+	public void partOpened(IWorkbenchPartReference partRef) {
+		IFileEditorInput input = (IFileEditorInput)editorPart.getEditorInput();     
+		//IFile file = input.getFile();     
+		//IProject activeProject = file.getProject();     
+		//String activeProjectName = activeProject.getName();
+		//String projName = partRef.getPage().getActiveEditor().getTitle();
+		System.out.println(projName);
+	}
+
+	@Override
+	public void partHidden(IWorkbenchPartReference partRef) {
+		
+		
+	}
+
+	@Override
+	public void partVisible(IWorkbenchPartReference partRef) {
+		
+		
+	}
+
+	@Override
+	public void partInputChanged(IWorkbenchPartReference partRef) {
+		
+		
+	}
+	
+	
+}

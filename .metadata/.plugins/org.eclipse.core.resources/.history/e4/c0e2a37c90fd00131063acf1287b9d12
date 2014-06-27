@@ -1,0 +1,86 @@
+package glass.handlers;
+
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.jface.util.IPropertyChangeListener;
+import org.eclipse.jface.util.PropertyChangeEvent;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CaretEvent;
+import org.eclipse.swt.custom.CaretListener;
+import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.custom.StyledTextContent;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
+import org.eclipse.swt.events.MouseMoveListener;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IPartListener;
+import org.eclipse.ui.IPartListener2;
+import org.eclipse.ui.IPropertyListener;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IWorkbenchPartReference;
+import org.eclipse.ui.texteditor.AbstractTextEditor;
+import org.eclipse.ui.IEditorReference;
+
+
+public class EditorListener extends ParentListener implements IPartListener2 {
+
+	public StyledTextContent content;
+	
+	
+	public EditorListener() {
+	}
+	
+	public Object execute(ExecutionEvent event) {
+		return null;
+	}
+
+
+	@Override
+	public void partActivated(IWorkbenchPartReference partRef) {
+		//System.out.println("Activated");
+		//System.out.println("Line number: " + getLineNumber());
+	}
+
+	@Override
+	public void partBroughtToTop(IWorkbenchPartReference partRef) {
+		
+	}
+
+	@Override
+	public void partClosed(IWorkbenchPartReference partRef) {
+	}
+
+	@Override
+	public void partDeactivated(IWorkbenchPartReference partRef) {
+		//System.out.println("Deactivated");
+	}
+
+	@Override
+	public void partOpened(IWorkbenchPartReference partRef) {
+		AbstractTextEditor editor = (AbstractTextEditor) partRef.getPage().getWorkbenchWindow().getActivePage().getActiveEditor();
+		System.out.println(editor.getPartName());
+	}
+
+	@Override
+	public void partHidden(IWorkbenchPartReference partRef) {
+		
+		
+	}
+
+	@Override
+	public void partVisible(IWorkbenchPartReference partRef) {
+		
+		
+	}
+
+	@Override
+	public void partInputChanged(IWorkbenchPartReference partRef) {
+		
+		
+	}
+	
+	
+}

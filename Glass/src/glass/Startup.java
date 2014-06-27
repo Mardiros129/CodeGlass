@@ -1,0 +1,24 @@
+package glass;
+
+import glass.handlers.EditorListener;
+
+import org.eclipse.ui.IStartup;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
+
+
+public class Startup implements IStartup {
+
+	@Override
+	public void earlyStartup() {
+		final IWorkbenchWindow[] workbenchWindows = PlatformUI.getWorkbench().getWorkbenchWindows();
+		EditorListener eventListener = new EditorListener();
+		
+		for (IWorkbenchWindow window: workbenchWindows) {
+			window.getPartService().addPartListener(eventListener);
+		}
+		
+		//PlatformUI.getWorkbench().getActiveWorkbenchWindow().getPartService().addPartListener(
+		
+	}
+}
